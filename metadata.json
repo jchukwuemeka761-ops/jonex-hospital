@@ -1,0 +1,6 @@
+{
+  "name": "Jonex Hospital — Aba",
+  "description": "Private 24/7 healthcare facility on Ebenma Street, Ogbor Hill, Aba. Book surgical consultations, clinical checkups, maternity care, and diagnostic tests online.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
