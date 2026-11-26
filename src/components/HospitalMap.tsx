@@ -429,26 +429,26 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12">
-      <div className="lg:col-span-5 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 space-y-5">
+      <div className="lg:col-span-5 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-teal-400/35 bg-teal-950/95 text-teal-50 space-y-5">
         <div className="space-y-1.5">
-          <p className="text-xs font-medium text-teal-800">
+          <p className="text-xs font-semibold text-teal-300">
             Interactive Directions · Ogbor Hill, Aba
           </p>
-          <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0F2942]">
+          <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
             Navigate to Jonex Hospital
           </h3>
-          <p className="text-sm text-slate-600 leading-relaxed">{resolvedAddress}</p>
+          <p className="text-sm text-teal-100 leading-relaxed">{resolvedAddress}</p>
         </div>
 
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-1 p-1 bg-slate-100 rounded-lg">
+          <div className="inline-flex items-center gap-1 p-1 bg-teal-900/90 border border-teal-400/35 rounded-lg">
             <button
               type="button"
               onClick={() => handleTravelModeChange('DRIVING')}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
                 travelMode === 'DRIVING'
-                  ? 'bg-[#0F2942] text-white'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-teal-300 text-slate-950'
+                  : 'text-teal-100 hover:text-white'
               }`}
             >
               <Car className="w-4 h-4" aria-hidden="true" />
@@ -459,8 +459,8 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
               onClick={() => handleTravelModeChange('WALKING')}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
                 travelMode === 'WALKING'
-                  ? 'bg-[#0F2942] text-white'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-teal-300 text-slate-950'
+                  : 'text-teal-100 hover:text-white'
               }`}
             >
               <Footprints className="w-4 h-4" aria-hidden="true" />
@@ -469,13 +469,13 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
           </div>
 
           <div className="space-y-1.5">
-            <p id="originAutocompleteLabel" className="block text-xs font-semibold text-slate-700">
+            <p id="originAutocompleteLabel" className="block text-xs font-semibold text-teal-200">
               Search Your Starting Address or Landmark in Nigeria
             </p>
             <div
               ref={autocompleteHostRef}
               aria-labelledby="originAutocompleteLabel"
-              className="rounded-lg border border-slate-300 bg-white overflow-hidden focus-within:border-teal-700 min-h-[40px]"
+              className="rounded-lg border border-teal-300/60 bg-white text-slate-900 overflow-hidden focus-within:border-teal-300 min-h-[40px]"
             />
           </div>
 
@@ -489,12 +489,12 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
               value={originQuery}
               onChange={(e) => setOriginQuery(e.target.value)}
               placeholder="Or type Aba street / junction..."
-              className="flex-1 min-w-0 px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-teal-700"
+              className="flex-1 min-w-0 px-3 py-2 text-sm bg-white text-slate-900 placeholder:text-slate-500 border border-teal-300/60 rounded-lg focus:outline-none focus:border-teal-300"
             />
             <button
               type="submit"
               disabled={routingLoading}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-[#0F2942] hover:bg-teal-800 disabled:opacity-60 rounded-lg transition-colors whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-950 bg-orange-400 hover:bg-orange-300 disabled:opacity-60 rounded-lg transition-colors whitespace-nowrap shrink-0"
             >
               <Navigation className="w-4 h-4" aria-hidden="true" />
               <span>Route</span>
@@ -502,13 +502,13 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
           </form>
 
           <div className="space-y-2">
-            <p className="text-xs font-medium text-slate-500">Quick Starting Points in Aba</p>
+            <p className="text-xs font-medium text-teal-200">Quick Starting Points in Aba</p>
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
                 onClick={handleGeolocation}
                 disabled={routingLoading}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-teal-900 bg-teal-50 hover:bg-teal-100 border border-teal-200 rounded-lg transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-950 bg-teal-300 hover:bg-teal-200 border border-teal-200 rounded-lg transition-colors"
               >
                 <LocateFixed className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>My Current Location</span>
@@ -519,7 +519,7 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
                   type="button"
                   onClick={() => void handleLandmarkClick(landmark)}
                   disabled={routingLoading}
-                  className="px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg transition-colors"
+                  className="px-3 py-1.5 text-xs font-medium text-teal-50 bg-teal-900/90 hover:bg-teal-800 border border-teal-400/40 rounded-lg transition-colors"
                 >
                   {shortLandmarkName(landmark)}
                 </button>
@@ -528,44 +528,44 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
           </div>
 
           {routeStatusMessage && (
-            <p className="text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2">
+            <p className="text-xs text-amber-100 bg-amber-950/80 border border-amber-400/40 rounded-lg px-3 py-2">
               {routeStatusMessage}
             </p>
           )}
 
           {activeRoute && (
             <div
-              className="rounded-xl border border-teal-200 bg-teal-50/40 p-4 space-y-3"
+              className="rounded-xl border border-teal-400/40 bg-teal-900/90 p-4 space-y-3"
               data-testid="route-summary"
             >
-              <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-teal-200/70">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-teal-700/70">
                 <div>
-                  <p className="text-[11px] font-medium text-teal-800">
+                  <p className="text-[11px] font-semibold text-teal-200">
                     {activeRoute.travelMode === 'DRIVING' ? 'Driving Route' : 'Walking Route'}
                   </p>
-                  <p className="text-xs font-semibold text-[#0F2942] truncate max-w-[230px]">
+                  <p className="text-xs font-semibold text-white truncate max-w-[230px]">
                     From {activeRoute.originLabel}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="font-display text-lg font-bold text-[#0F2942] tabular-nums">
+                  <p className="font-display text-lg font-bold text-orange-300 tabular-nums">
                     {activeRoute.durationLabel}
                   </p>
-                  <p className="font-mono text-xs text-slate-600 tabular-nums">
+                  <p className="font-mono text-xs text-teal-100 tabular-nums">
                     {activeRoute.distanceLabel}
                   </p>
                 </div>
               </div>
 
               {activeRoute.steps.length > 0 && (
-                <ol className="max-h-44 overflow-y-auto space-y-2 pr-1 text-xs text-slate-700">
+                <ol className="max-h-44 overflow-y-auto space-y-2 pr-1 text-xs text-teal-100">
                   {activeRoute.steps.map((step) => (
                     <li key={step.index} className="flex items-start gap-2">
-                      <span className="font-mono text-[11px] font-semibold text-teal-800 tabular-nums shrink-0 mt-0.5">
+                      <span className="font-mono text-[11px] font-semibold text-teal-300 tabular-nums shrink-0 mt-0.5">
                         {step.index}.
                       </span>
                       <span className="flex-1">{step.instruction}</span>
-                      <span className="font-mono text-[11px] text-slate-500 tabular-nums shrink-0">
+                      <span className="font-mono text-[11px] text-teal-200 tabular-nums shrink-0">
                         {step.distanceLabel}
                       </span>
                     </li>
@@ -576,12 +576,12 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
           )}
         </div>
 
-        <div className="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <div className="pt-2 border-t border-teal-700/70 flex flex-wrap items-center justify-between gap-3">
           <a
             href={externalDirectionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#0F2942] hover:text-teal-700 underline underline-offset-4"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-teal-200 hover:text-white underline underline-offset-4"
           >
             <ExternalLink className="w-4 h-4" aria-hidden="true" />
             <span>Open Turn-by-Turn GPS in Google Maps</span>
@@ -589,7 +589,7 @@ function InnerHospitalNavigator({externalDirectionsUrl}: InnerHospitalNavigatorP
 
           <a
             href={HOSPITAL_PROFILE.phoneHref}
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-slate-700 hover:text-[#0F2942]"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-orange-300 hover:text-orange-200"
           >
             <Phone className="w-3.5 h-3.5" aria-hidden="true" />
             <span>{HOSPITAL_PROFILE.phoneDisplay}</span>
@@ -687,7 +687,7 @@ export function HospitalMap() {
 
   if (apiKey) {
     return (
-      <div className="rounded-2xl border border-slate-200 bg-white/95 shadow-md overflow-hidden">
+      <div className="rounded-2xl border border-teal-400/40 bg-teal-950/95 shadow-lg overflow-hidden">
         <APIProvider
           apiKey={apiKey}
           language="en"
@@ -700,51 +700,53 @@ export function HospitalMap() {
   }
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/95 shadow-md overflow-hidden">
+    <div className="rounded-2xl border border-teal-400/40 bg-teal-950/95 shadow-lg overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12">
-        <div className="lg:col-span-5 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 space-y-5">
+        <div className="lg:col-span-5 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-teal-400/35 text-teal-50 space-y-5">
           <div className="space-y-1.5">
-            <p className="text-xs font-medium text-teal-800">
+            <p className="text-xs font-semibold text-teal-300">
               Interactive Directions · Ogbor Hill, Aba
             </p>
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-[#0F2942]">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
               Navigate to Jonex Hospital
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-teal-100 leading-relaxed">
               {HOSPITAL_PROFILE.primaryAddress}
             </p>
           </div>
 
           {loadError ? (
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3 text-sm text-slate-700">
-              <p className="font-semibold text-[#0F2942]">Campus Wayfinding Summary</p>
-              <p className="text-xs leading-relaxed text-slate-600">{loadError}</p>
-              <ul className="space-y-1.5 text-xs text-slate-600">
+            <div className="p-4 rounded-xl bg-teal-900/85 border border-teal-400/35 space-y-3 text-sm text-teal-100">
+              <p className="font-semibold text-white">Campus Wayfinding Summary</p>
+              <p className="text-xs leading-relaxed text-teal-100">{loadError}</p>
+              <ul className="space-y-1.5 text-xs text-teal-100">
                 <li>
-                  <strong>Primary Hospital:</strong> {HOSPITAL_PROFILE.primaryAddress}
+                  <strong className="text-white">Primary Hospital:</strong>{' '}
+                  {HOSPITAL_PROFILE.primaryAddress}
                 </li>
                 <li>
-                  <strong>Drop-Off:</strong> Covered patient driveway on Ebenma Street with
-                  step-free ramp
+                  <strong className="text-white">Drop-Off:</strong> Covered patient driveway on
+                  Ebenma Street with step-free ramp
                 </li>
                 <li>
-                  <strong>Parking:</strong> On-site visitor parking bay and wheelchair access slots
+                  <strong className="text-white">Parking:</strong> On-site visitor parking bay and
+                  wheelchair access slots
                 </li>
               </ul>
             </div>
           ) : (
-            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3 text-sm text-slate-600">
-              <RefreshCw className="w-5 h-5 text-teal-700 animate-spin shrink-0" aria-hidden="true" />
+            <div className="p-4 rounded-xl bg-teal-900/85 border border-teal-400/35 flex items-center gap-3 text-sm text-teal-100">
+              <RefreshCw className="w-5 h-5 text-teal-300 animate-spin shrink-0" aria-hidden="true" />
               <span>Locating Jonex Hospital, Ebenma Street, Ogbor Hill...</span>
             </div>
           )}
 
-          <div className="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <div className="pt-2 border-t border-teal-700/70 flex flex-wrap items-center justify-between gap-3">
             <a
               href={externalDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-[#0F2942] hover:text-teal-700 underline underline-offset-4"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-teal-200 hover:text-white underline underline-offset-4"
             >
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
               <span>Open Turn-by-Turn GPS in Google Maps</span>
@@ -752,7 +754,7 @@ export function HospitalMap() {
 
             <a
               href={HOSPITAL_PROFILE.phoneHref}
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-slate-700 hover:text-[#0F2942]"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-orange-300 hover:text-orange-200"
             >
               <Phone className="w-3.5 h-3.5" aria-hidden="true" />
               <span>{HOSPITAL_PROFILE.phoneDisplay}</span>
@@ -760,20 +762,20 @@ export function HospitalMap() {
           </div>
         </div>
 
-        <div className="lg:col-span-7 bg-slate-100">
-          <div className="w-full h-[420px] lg:h-full lg:min-h-[480px] flex flex-col items-center justify-center p-8 text-center space-y-4 bg-slate-100">
-            <MapPin className="w-10 h-10 text-[#0F2942]" aria-hidden="true" />
+        <div className="lg:col-span-7 bg-slate-900">
+          <div className="w-full h-[420px] lg:h-full lg:min-h-[480px] flex flex-col items-center justify-center p-8 text-center space-y-4 bg-slate-900 text-slate-100">
+            <MapPin className="w-10 h-10 text-teal-300" aria-hidden="true" />
             <div className="space-y-1 max-w-md">
-              <p className="font-display text-lg font-bold text-[#0F2942]">
+              <p className="font-display text-lg font-bold text-white">
                 Jonex Hospital · Ogbor Hill, Aba
               </p>
-              <p className="text-sm text-slate-600">{HOSPITAL_PROFILE.primaryAddress}</p>
+              <p className="text-sm text-slate-300">{HOSPITAL_PROFILE.primaryAddress}</p>
             </div>
             <a
               href={externalDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-[#0F2942] hover:bg-teal-800 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-slate-950 bg-orange-400 hover:bg-orange-300 rounded-lg transition-colors"
             >
               <Navigation className="w-[18px] h-[18px]" aria-hidden="true" />
               <span>Launch Google Maps Navigation</span>
